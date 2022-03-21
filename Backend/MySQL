@@ -1,0 +1,87 @@
+DROP TABLE IF EXISTS `add_to_cart`;
+
+CREATE TABLE `add_to_cart` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `product_id` bigint(20) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `added_date` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `product_pk_id` (`product_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `category`;
+
+CREATE TABLE `category` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `category` (`name`)
+VALUES
+	('Fiction'),
+	('Management'),
+	('Romance'),
+	('Non Fiction');
+  
+DROP TABLE IF EXISTS `checkout_cart`;
+
+CREATE TABLE `checkout_cart` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `product_id` bigint(20) DEFAULT NULL,
+  `qty` int(11) DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `order_date` datetime DEFAULT CURRENT_TIMESTAMP,
+  `user_id` int(11) DEFAULT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `payment_type` enum('COD','ONLINE') DEFAULT NULL,
+  `delivery_address` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `products`;
+
+CREATE TABLE `products` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) NOT NULL,
+  `price` double DEFAULT NULL,
+  `added_on` datetime DEFAULT CURRENT_TIMESTAMP,
+  `category_id` bigint(20) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `category_id_fk` (`category_id`),
+  CONSTRAINT `category_id_fk` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+INSERT INTO `products` (`name`, `price`, `added_on`, `category_id`,`description`)
+VALUES
+	('Twilight',150,'2022-03-21 00:00:00',3,'This is a book'),
+	('Saga',1500,'2022-03-21 00:00:00',3,'This is a book'),
+	('Who Moved My Cheese',1500,'2022-03-21 00:00:00',2,'This is a book'),
+	('Harry Potter',5500,'2022-03-21 00:00:00',1,'This is a book');
+
+DROP TABLE IF EXISTS `users`;
+
+CREATE TABLE `users` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `name` varchar(40) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `password` varchar(100) NOT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `login_token` text,
+  `type` int(11) DEFAULT NULL,
+  `address` text,
+  `is_email_verified` int(11) DEFAULT NULL,
+  `mobile` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `users` (`name`, `email`, `password`, `created_at`, `login_token`, `type`, `address`, `is_email_verified`, `mobile`)
+VALUES
+	('test','test@gmail.com','test','2022-03-21 00:00:00',NULL,NULL,NULL,1,'123456789');
+	
