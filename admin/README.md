@@ -25,6 +25,8 @@ To run this app
  6. You *must* use the same database and username and password as clientside.
 
 
+-- cd admin/src/main/webapp/reactjs for running frontend of admin side --
+
 
 
 
