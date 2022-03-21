@@ -1,4 +1,4 @@
-package com.java.books.resource;
+package com.java.books.resources;
 
 import java.util.Collection;
 import java.util.Optional;
