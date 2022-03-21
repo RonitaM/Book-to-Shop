@@ -22,6 +22,7 @@ To run this app
     * View Book Details
  4. For beginning the project, there are some dummy data added into mysql, for beginning the project.
  5. If you do not want to add those data, then you can go into the admin side to set them up.
+ 6. You * must * use the same database and username and password as clientside.
 
 
 
