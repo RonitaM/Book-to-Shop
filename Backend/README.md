@@ -10,3 +10,8 @@
 
 ## Features
 
+* Browse books without registering
+* Add to cart
+* Checkout Page
+* Sign in
+* Sign up
