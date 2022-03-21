@@ -68,7 +68,7 @@ export default function Product() {
 				</div>
 				<div class="description">
 					<h5><i>Description</i></h5>
-					<p>This is a book</p>
+					<p>This is a {product} book</p>
 				</div>
 			
 				
