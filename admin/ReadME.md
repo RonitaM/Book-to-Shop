@@ -10,91 +10,18 @@ To run this app
  6. Then go to http://localhost:3000/ you will get the page.
 
 
-## Rest APIs
+## Running it along with the client side
 
-* GET - http://localhost:8080/api/v1/books/100
-
- **Response**
-
- {
-    "id": 100,
-    "title": "Spring microservice in action",
-    "author": "john carnell",
-    "coverPhotoURL": "iuiuyolkhk",
-    "isbnNumber": 7987709099090,
-    "price": 3222,
-    "language": "English"
- }
-
-
-* POST - http://localhost:8080/api/v1/books 
-Header
-Content-Type - application/json
- 
- **input**
- 
- {
-        "id": 101,
-        "title": "Spring in action",
-        "author": "john carnell",
-        "coverPhotoURL": "iuiuyolkhk",
-        "isbnNumber": 7987709099090,
-        "price": 3200,
-        "language": "English"
- }
-
-* GET - http://localhost:8080/api/v1/books 
-
- **Response**
- 
- [
-    {
-        "id": 100,
-        "title": "Spring microservice in action",
-        "author": "john carnell",
-        "coverPhotoURL": "iuiuyolkhk",
-        "isbnNumber": 7987709099090,
-        "price": 3222,
-        "language": "English"
-    },
-    {
-        "id": 101,
-        "title": "Spring microservice in action",
-        "author": "john carnell",
-        "coverPhotoURL": "iuiuyolkhk",
-        "isbnNumber": 7987709099090,
-        "price": 3222,
-        "language": "English"
-    },
-    {
-        "id": 102,
-        "title": "Spring in action",
-        "author": "john carnell",
-        "coverPhotoURL": "iuiuyolkhk",
-        "isbnNumber": 7987709099090,
-        "price": 3200,
-        "language": "English"
-    }
- ]
-
-
-* PUT - http://localhost:8080/api/v1/books
-
- **input**
- 
- {
-    "id": 102,
-    "title": "Apache Kafka",
-    "author": "john carnell",
-    "coverPhotoURL": "iuiuyolkhk",
-    "isbnNumber": 7987709099090,
-    "price": 1000.00,
-    "language": "English"
- }
-
-
-* DELETE - http://localhost:8080/api/v1/books/<bookId>
-
+ 1. When running it along with client side, make sure you change the port ID and deploy it on that port, else Hibernate and JPA fails to start
+ 2. If you do not want to do that, you can access the admin side first and then go to client side
+ 3. On admin side, we can:
+    * View all order details
+    * View all user details
+    * View all category details
+    * Perform CRUD operations on book details
+    * View Book Details
+ 4. For beginning the project, there are some dummy data added into mysql, for beginning the project.
+ 5. If you do not want to add those data, then you can go into the admin side to set them up.
 
 
 
